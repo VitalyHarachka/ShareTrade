@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+<xs:schema version="1.0"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           elementFormDefault="qualified">
+    
+    
+    <xs:complexType name="sharePrice">
+        <xs:sequence>
+            <xs:element name="currency" type="xs:string"/>
+            <xs:element name="value" type="xs:float"/>
+            <xs:element name="lastUpdate" type="xs:date"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="Share">
+        <xs:sequence>
+            <xs:element name="companyName" type="xs:string"/>
+            <xs:element name="companySymbol" type="xs:string"/>
+            <xs:element name="shareavAilability" type="xs:int"/>
+            <xs:element name="sharePrice" type="sharePrice" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:element name="Shares">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="Share" type="Share" minOccurs="0" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+
+</xs:schema>
